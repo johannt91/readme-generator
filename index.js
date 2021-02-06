@@ -9,22 +9,54 @@ const questions = [
     {
         type: 'input',
         name: 'github',
-        message: 'What is your GitHub username?'
+        message: 'What is your GitHub username? (Required)',
+        validate: gitInput => {
+            if (gitInput) {
+                return true;
+            } else {
+                console.log('Please enter your GitHub username!');
+                return false;
+            }
+        }
       },
       {
         type: 'input',
         name: 'email',
-        message: 'What is your email address?'
+        message: 'What is your email address? (Required)',
+        validate: emailInput => {
+            if (emailInput) {
+                return true;
+            } else {
+                console.log('Please enter your email!');
+                return false;
+            }
+        }
       },
       {
         type: 'input',
         name: 'title',
-        message: "What is your project's name?"
+        message: "What is your project's name? (Required)",
+        validate: titleInput => {
+            if (titleInput ) {
+                return true;
+            } else {
+                console.log('Please enter the title of your project!');
+                return false;
+            }
+        }
       },
       {
         type: 'input',
         name: 'description',
-        message: 'Please write a short description of your project'
+        message: 'Please write a short description of your project (Required)',
+        validate: descriptionInput => {
+            if (descriptionInput) {
+                return true;
+            } else {
+                console.log('Please describe your project!');
+                return false;
+            }
+        }
       },
       {
         type: 'list',
@@ -36,13 +68,11 @@ const questions = [
         type: 'input',
         name: 'installation',
         message: 'What command should be run to install dependencies?',
-        default: 'npm i'
       },
       {
         type: 'input',
         name: 'test',
         message: 'What command should be run to run tests?',
-        default: 'npm test'
       },
       {
         type: 'input',
@@ -57,10 +87,20 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, err => {
+        if (err) throw err;
+        console.log('README complete!');
+    });
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer.prompt(questions)
+    .then(answers => {
+        writeToFile("./README.md", generateMarkdown(answers));
+    })
+}
 
 // Function call to initialize app
 init();
