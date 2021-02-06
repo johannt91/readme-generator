@@ -62,7 +62,7 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'What kind of license should your project have?',
-        choices: ['MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3', 'None']
+        choices: ['APACHE 2.0','BSD 3', 'GPL 3.0', 'MIT', 'None']
       },
       {
         type: 'input',
@@ -77,12 +77,20 @@ const questions = [
       {
         type: 'input',
         name: 'usage',
-        message: 'What does the user need to know about using the repo?'
+        message: 'Please provide usage information (Required)',
+        validate: inputUsage => {
+            if (inputUsage) {
+                return true;
+            } else {
+                console.log('Please enter information for usage');
+                return false;
+            }
+        }
       },
       {
         type: 'input',
-        name: 'contributing',
-        message: 'What does the user need to know about contributing to the repo?'
+        name: 'contribution',
+        message: 'Please provide some guidelines for contributions'
       }
 ];
 
@@ -97,8 +105,8 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
-    .then(answers => {
-        writeToFile("./README.md", generateMarkdown(answers));
+    .then(data => {
+        writeToFile("./README.md", generateMarkdown(data));
     })
 }
 
