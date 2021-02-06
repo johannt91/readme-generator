@@ -1,10 +1,10 @@
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
   # README Generator
 
   ## Description
 
-  This project utilizes node.js and inquirer to create a professional README generator
+  Generate README
 
   ## Table of Contents
 
@@ -26,11 +26,11 @@
   N/A
 
   ### License
-  This project is licensed under MIT
+  This project is licensed under [GPL 3.0](https://www.gnu.org/licenses/gpl-3.0)
 
   ### Contributing
   
-  undefined
+  None
 
   ### Tests
   
@@ -40,7 +40,7 @@
 
   ## Questions
   
-  If you have any questions about the repo, please contact me at j.taylor1343@gmail.com.
+  If you have any questions about the repo, please contact me at email.
 
   You can find more of my work and projects at [johannt91](https://github.com/johannt91).
 
