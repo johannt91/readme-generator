@@ -8,10 +8,7 @@ A command line application that can be used to dynamically generate a profession
 
 * [Installation](#installation)
 * [Usage](#usage)
-* [License](#license)
-* [Contributing](#contributing)
-* [Test](#test)
-* [Questions](#questions)
+* [Instructions](#instructions)
 
 ### Installation
   
